@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d132031da6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="caso pratico.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <script src="validar.js"></script>
+    <title>CASO PRATICO JS</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="flex">
+                <div class="icone">
+                    <a href="index.html">
+                        <i class="fa-solid fa-globe" style="color: white; font-size: 30px;"></i>
+                    </a>
+                </div>
+
+                <nav>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i>Início</a></li>
+                        <li><a href="portifolio.html"><i class="fa-solid fa-images"></i>Galeria</a></li>
+                        <li><a href="noticias.html"><i class="fa-solid fa-newspaper"></i>Notícias</a></li>
+                        <li><a href="orcamento.html"><i class="fa-solid fa-file-invoice-dollar"></i>Orçamento</a></li>
+                        <li><a href="contactos.html"><i class="fa-solid fa-phone"></i>Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="bannerorcamento">
+        <h1>FAÇA SEU <span>ORÇAMENTO</span></h1>
+    </section>
+
+    <div class="orcamento">
+        <div class="caixa1">
+
+            <form method="POST" name="orcamentos" netlify onsubmit="return validarFormulario()" >
+                <input type="hidden" name="form-name" value="orcamentos" />
+                <br><br><br>
+                <h3>PREENCHA OS SEGUINTES CAMPOS</h3><br><br>
+                <table>
+                    <tr>
+                        <td><h5>Nome *</h5></td>
+                        <td><input class="textbox" type="text" name="nome" maxlength="50" size="40" id="nome"
+                                   placeholder="O seu nome" required oninput="validarNome(this); calcularOrcamento()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5>Morada *</h5></td>
+                        <td><input class="textbox" type="text" name="morada" maxlength="80" size="40" id="morada"
+                                   placeholder="A sua morada" required oninput="validarMorada(this); calcularOrcamento()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><h5>Telemóvel *</h5></td>
+                        <td><input class="textbox" type="text" name="telemovel" maxlength="9" size="9" id="telemovel"
+                                   placeholder="O seu número de telemóvel" required oninput="validarTelemovel(this); calcularOrcamento()"></td>
+                    </tr>
+                    <tr>
+                        <td><h5>E-mail *</h5></td>
+                        <td><input class="textbox" type="email" name="email" maxlength="50" size="40" id="email"
+                                   placeholder="O seu e-mail" required oninput="validarEmail(this); calcularOrcamento()">
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+                <h3>PEDIDO DE ORÇAMENTO</h3>
+                <table>
+                    <tr>
+                        <td><h5>Tipo de página *</h5></td>
+                        <td>
+                            <select id="tipoPagina" name="tipoPagina" oninput="calcularOrcamento()">
+                                <option value="0">Selecione</option>
+                                <option value="500,00 Simples">Página Simples - 500€</option>
+                                <option value="600,00 Intermediária">Página Intermediária - 600€</option>
+                                <option value="700,00 Avançada">Página Avançada - 700€</option>
+                                <option value="900,00 Premium">Página Premium - 900€</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <br><br>
+                    <tr>
+                        <td><h5>Prazo entrega *</h5></td>
+                        <td>
+                            <select name="prazoMeses" id="prazoMeses" oninput="calcularOrcamento()">
+                                <option value="Selecione">Selecione</option>
+                                <option value="S/desc (30 dias)">S/Desconto (30 dias)</option>
+                                <option value="5% desc (60 dias)">5% desconto (60 dias)</option>
+                                <option value="10% desc (90 dias)">10% desconto (90 dias)</option>
+                                <option value="15% desc (120 dias)">15% desconto (120 dias)</option>
+                                <option value="20% desc (150 dias)">20% desconto (150 dias)</option>
+                            </select>
+                            <input type="hidden" name="prazoVisivel" id="prazoVisivel" value="">
+                        </td>
+                    </tr>
+                </table>
+                <br><br><br>
+                <h3>SELECIONE OS SERVIÇOS DESEJADOS:</h3>
+                <br><br>
+                <div class="servicos-container">
+                    <label><input class="input2" name="servicos[]" type="checkbox" value="Quem somos (+ 300€)"
+                                  oninput="calcularOrcamento()" /> Quem somos (+ 300€)</label><br>
+                    <label><input class="input2" name="servicos[]" type="checkbox" value="Onde estamos (+ 300€)"
+                                  oninput="calcularOrcamento()" /> Onde estamos (+ 300€)</label><br>
+                    <label><input class="input2" name="servicos[]" type="checkbox" value="Galeria de fotografias (+ 500€)"
+                                  oninput="calcularOrcamento()" /> Galeria de fotografias (+ 500€)</label><br>
+                    <label><input class="input2" name="servicos[]" type="checkbox" value="eCommerce (+ 500€)"
+                                  oninput="calcularOrcamento()" /> eCommerce (+ 500€)</label><br>
+                    <label><input class="input2" name="servicos[]" type="checkbox"
+                                  value="Gestão interna / Base de dados (+ 600€)" oninput="calcularOrcamento()" />
+                        Gestão interna / Base de dados (+ 600€)</label><br>
+                    <label><input class="input2" name="servicos[]" type="checkbox" value="Notícias (+ 200€)"
+                                  oninput="calcularOrcamento()" /> Notícias (+ 200€)</label><br>
+                    <label><input class="input2" name="servicos[]" type="checkbox" value="Redes sociais (+ 250€)"
+                                  oninput="calcularOrcamento()" /> Redes sociais (+ 250€)</label><br><br>
+                </div><br><br>
+
+                <h3>Valor estimado</h3>
+
+                <div class="botoes">
+                    <h5 id="valorEstimadoValue">0€</h5>
+                    <input type="hidden" id="valorEstimadoInput" name="valorEstimado" value="0">
+                </div>
+                <br>
+
+                <div class="botoes">
+                    <input type="submit" class="botao cinza" value="ENVIAR">
+                    <input type="reset" name="Botao apagar" class="botao" value="APAGAR">
+                </div><br><br>
+
+                <p id="paragrafo-formulario">(*) Os campos obrigatórios.</p>
+            </form>
+        </div>
+    </div>
+
+    <div class="menuinferior">
+        <nav>
+            <ul class="nav-menu">
+                <li>
+                    <a href="index.html">
+                        Início
+                    </a>
+                </li>
+                <li>
+                    <a href="portifolio.html">
+                        Galeria
+                    </a>
+                </li>
+                <li>
+                    <a href="noticias.html">
+                        Notícias
+                    </a>
+                </li>
+                <li>
+                    <a href="orcamento.html">
+                        Orçamento
+                    </a>
+                </li>
+                <li>
+                    <a href="contactos.html">
+                        Contacto</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="footer">
+        <div class="redes-sociais">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square "></i></a>
+            <a href="https://pt.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+            <a href="https://twitter.com/?lang=pt_pt" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+        </div>
+        <p class="rodape"> Powered by <span><a href="contactos.html">Tiago Pontes</a></span></p>
+    </div>
+
+    
+</body>
+
+</html>

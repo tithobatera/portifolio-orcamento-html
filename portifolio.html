@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d132031da6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="caso pratico.css">
+    <link rel="stylesheet" href="redimensionamento.css">
+    <!-- Link para carregar o Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
+
+
+
+    <title>CASO PRATICO JS</title>
+</head>
+
+<body>
+
+
+
+    <header id="header">
+        <div class="container">
+            <div class="flex">
+
+                <div class="icone">
+                    <a href="index.html">
+                        <i class="fa-solid fa-globe" style="color: white; font-size: 30px;"></i>
+                    </a>
+
+                </div>
+
+
+
+
+
+
+                <nav>
+
+                    <div class="menu-toggle" id="menu-toggle">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <!-- Menu de navegação -->
+                    <ul class="nav-menu">
+                        <li>
+                            <a href="index.html">
+                                <i class="fa-solid fa-house"></i>Início
+                            </a>
+                        </li>
+                        <li>
+                            <a href="portifolio.html">
+                                <i class="fa-solid fa-images"></i>Galeria
+                            </a>
+                        </li>
+                        <li>
+                            <a href="noticias.html">
+                                <i class="fa-solid fa-newspaper"></i>Notícias
+                            </a>
+                        </li>
+                        <li>
+                            <a href="orcamento.html">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>Orçamento
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contactos.html">
+                                <i class="fa-solid fa-phone"></i>Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+
+    <section class="bannergaleria">
+        <h1>GALERIA <span>IMAGENS</span></h1>
+    </section>
+    
+    <div class="caixa4galeria">
+        <h4>Exemplos de galeria em LightBox</h4>
+    </div>
+
+    <div class="wrapper">
+        <div class="gallery">
+
+
+            <div class="image"><img src="imagens/img1.jpg" alt="IMAGEM 1" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img2.jpg" alt="IMAGEM 2" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img3.jpg" alt="IMAGEM 3" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img4.jpg" alt="IMAGEM 4" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img5.jpg" alt="IMAGEM 5" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img6.jpg" alt="IMAGEM 6" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+
+        </div>
+    </div>
+
+
+
+    <div class="wrapper2">
+        <div class="gallery2">
+            <div class="image"><img src="imagens/img8.jpg" alt="IMAGEM 7" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img9.jpg" alt="IMAGEM 8" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img10.jpg" alt="IMAGEM 9" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img11.jpg" alt="IMAGEM 10" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img12.jpg" alt="IMAGEM 11" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+            <div class="image"><img src="imagens/img13.jpg" alt="IMAGEM 12" class="gallery-image"
+                    onclick="openLightbox(this)"></div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="">
+            <div id="lightbox-desc" class="lightbox-desc"></div>
+        </div>
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
+        <span class="close" onclick="closeLightbox()">&times;</span>
+    </div>
+
+    <div class="footergaleria">
+
+        <div class="redes-sociaisgaleria">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square "></i></a>
+            <a href="https://pt.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+            <a href="https://twitter.com/?lang=pt_pt" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+        </div>
+
+        <p class="rodapegaleria"> Powered by <span><a href="contactos.html">Tiago Pontes</a></span></p>
+
+        <br>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Seleciona o botão de menu e o menu de navegação
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        // Adiciona um evento de clique no ícone do menu para alternar a visibilidade do menu
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
